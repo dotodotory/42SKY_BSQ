@@ -6,7 +6,7 @@
 /*   By: jiykim <jiykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 22:24:08 by jiykim            #+#    #+#             */
-/*   Updated: 2020/11/05 01:27:59 by mysong           ###   ########.fr       */
+/*   Updated: 2020/11/07 13:56:12 by jiykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <stdlib.h>
+# include <stdio.h>
 # define BUFF_SIZE 2048
 
 typedef struct	s_read{

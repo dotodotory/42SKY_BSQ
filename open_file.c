@@ -6,7 +6,7 @@
 /*   By: jiykim <jiykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 23:44:23 by jiykim            #+#    #+#             */
-/*   Updated: 2020/11/05 00:42:10 by jiykim           ###   ########.fr       */
+/*   Updated: 2020/11/07 14:56:00 by jiykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ int	ft_open_file(char *file, char *buf)
 		close(fd);
 	}
 	else
+	{
+		printf("open error\n");
 		return (0);
+	}
 	return (open_f);
 }
 

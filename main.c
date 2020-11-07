@@ -6,7 +6,7 @@
 /*   By: jiykim <jiykim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 19:29:08 by jiykim            #+#    #+#             */
-/*   Updated: 2020/11/05 01:31:41 by mysong           ###   ########.fr       */
+/*   Updated: 2020/11/07 14:56:55 by jiykim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,25 @@ void	init_gvar(void)
 
 void	prc_stdin(char *buff, int prc_f)
 {
-	int		in_size;
-	int		idx;
-	char	map_name[BUFF_SIZE];
+	int i;
+	int **map;
 
-	in_size = read(0, buff, sizeof(buff));
-	idx = -1;
-	while (buff[idx++] != '\n')
-		map_name[idx] = buff[idx];
-	map_name[idx] = '\0';
-	prc_f = ft_open_file(map_name, buff);
+	i = -1;
+	map = (int **)malloc(sizeof(int *) * g_row + 2);
+	while (++i < g_row + 1)
+		map[i] = ft_calloc(map[i], g_col + 1);
+	map[i] = 0;
+	prc_f = ft_read_file(0, buff);
 	if (!is_error(prc_f))
 		return ;
-	prc_f = ft_open_file2(map_name, buff);
+	prc_f = ft_read_file2(map, 0, buff);
+	if (prc_f == -1)
+		ft_free_map(map);
 	if (!is_error(prc_f))
 		return ;
+	chk(map);
+	print_map(map, g_c);
+	ft_free_map(map);
 }
 
 int		main(int argc, char **argv)
